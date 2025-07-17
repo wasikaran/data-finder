@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Citizen Registry | Advanced Verification System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <div class="security-wall"></div>
+    
+    <div class="container">
+        <header class="system-header">
+            <div class="logo">
+                <h1>National Citizen Verification System</h1>
+            </div>
+            <div class="security-badge">
+                <i class="fas fa-shield-alt"></i>
+                <span>SECURITY LEVEL 5</span>
+            </div>
+        </header>
+
+        <div class="main-content">
+            <div class="verification-panel">
+                    
+                    <div class="input-field cnic-field">
+                        <input type="text" id="cnic-input" placeholder="Enter CNIC (without dashes)" maxlength="13">
+                        <button id="verify-btn" class="verify-button">
+                            <i class="fas fa-search"></i> Verify Identity
+                        </button>
+                    </div>
+                
+
+            </div>
+
+            <div class="results-panel" style="display:none">
+                <div class="results-header">
+                    <h2>Citizen Verification Report</h2>
+                    <div class="result-status">
+                        <span class="status-badge verified">
+                            <i class="fas fa-check-circle"></i> VERIFIED
+                        </span>
+                        <button id="print-report" class="print-button">
+                            <i class="fas fa-print"></i> Print Full Report
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="citizen-details">
+                    <div class="profile-section">
+                        <div class="profile-image">
+                            <img id="citizen-image" src="assets/default-profile.jpg" alt="Citizen Photo">
+                            <div class="image-overlay">
+                                <span>OFFICIAL PHOTO</span>
+                            </div>
+                        </div>
+                        <div class="quick-info">
+                            <h3 id="citizen-name">Muhammad Ali Khan</h3>
+                            <div class="info-grid">
+                                <div>
+                                    <label>CNIC</label>
+                                    <p id="info-cnic">42201-1234567-8</p>
+                                </div>
+                                <div>
+                                    <label>Father</label>
+                                    <p id="info-father">Abdul Khan</p>
+                                </div>
+                                <div>
+                                    <label>DOB</label>
+                                    <p id="info-dob">15-03-1985</p>
+                                </div>
+                                <div>
+                                    <label>Gender</label>
+                                    <p id="info-gender">Male</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="detailed-info">
+                        <div class="info-card personal-info">
+                            <h3><i class="fas fa-user-tie"></i> Personal Information</h3>
+                            <div class="info-table">
+                                <div class="info-row">
+                                    <span>Mother's Name</span>
+                                    <span id="info-mother">Fatima Begum</span>
+                                </div>
+                                <div class="info-row">
+                                    <span>Marital Status</span>
+                                    <span id="info-marital">Married</span>
+                                </div>
+                                <div class="info-row">
+                                    <span>Current Address</span>
+                                    <span id="info-address">House #12, Street 45, G-10/4, Islamabad</span>
+                                </div>
+                                <div class="info-row">
+                                    <span>Permanent Address</span>
+                                    <span id="info-perm-address">Village Kotli, District Sialkot</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card family-info">
+                            <h3><i class="fas fa-users"></i> Family Records</h3>
+                            <div class="family-members" id="family-members">
+                                <!-- Dynamically filled -->
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="security-section">
+                        <div class="info-card criminal-info">
+                            <h3><i class="fas fa-gavel"></i> Criminal & Security Records</h3>
+                            <div class="criminal-status">
+                                <div class="status-header">
+                                    <h4>National Crime Database Status</h4>
+                                    <span class="status-badge clean" id="crime-status">
+                                        <i class="fas fa-check"></i> CLEAN RECORD
+                                    </span>
+                                </div>
+                                <div class="records-table" id="criminal-records">
+                                    <!-- Dynamically filled -->
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="info-card verification-info">
+                            <h3><i class="fas fa-user-shield"></i> Verification Details</h3>
+                            <div class="verification-grid">
+                                <div class="verification-item">
+                                    <i class="fas fa-database"></i>
+                                    <span>NADRA Records</span>
+                                    <span class="status verified">Verified</span>
+                                </div>
+                                <div class="verification-item">
+                                    <i class="fas fa-balance-scale"></i>
+                                    <span>Court Records</span>
+                                    <span class="status verified">Verified</span>
+                                </div>
+                                <div class="verification-item">
+                                    <i class="fas fa-shield-alt"></i>
+                                    <span>Security Agencies</span>
+                                    <span class="status pending">Pending</span>
+                                </div>
+                                <div class="verification-item">
+                                    <i class="fas fa-passport"></i>
+                                    <span>Immigration</span>
+                                    <span class="status verified">Verified</span>
+                                </div>
+                            </div>
+                            <div class="verification-stamp">
+                                <div class="stamp-image">
+                                    <img src="assets/official-stamp.png" alt="Official Stamp">
+                                </div>
+                                <div class="stamp-details">
+                                    <p>Verified by: <span id="verification-officer">Asst. Director Muhammad Javed</span></p>
+                                    <p>Date: <span id="verification-date">15-06-2023</span></p>
+                                    <p>Time: <span id="verification-time">14:45:23</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <footer class="system-footer">
+            <div class="footer-security">
+                <i class="fas fa-lock"></i>
+                <span>Secure Connection Encrypted (AES-256)</span>
+                <span class="session-timer"><i class="fas fa-clock"></i> Session: 04:32</span>
+            </div>
+            <div class="footer-copyright">
+                <p>© 2023 National Database & Registration Authority. All Rights Reserved.</p>
+                <p>System Version: 4.2.1 | Last Updated: 10-06-2023</p>
+            </div>
+        </footer>
+    </div>
+
+    <script src="fake-database.js"></script>
+    <script src="criminal-records.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
